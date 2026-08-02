@@ -19,21 +19,21 @@ SKILL_MAX_CHARACTERS = 5_000
 SKILL_MAX_APPROX_TOKENS = 4_500
 
 REQUIRED_KNOWLEDGE = (
-    "01-证据分级与内容边界.md",
-    "05-PUA操控与伦理替代.md",
-    "08-同意边界性与亲密.md",
-    "09-在线约会与数字关系.md",
-    "17-中国法律安全与危机转介.md",
-    "20-经典社交体系的机制、证据与风险边界.md",
+    "01-證據分級與內容邊界.md",
+    "05-PUA操控與倫理替代.md",
+    "08-同意邊界性與親密.md",
+    "09-在線約會與數字關係.md",
+    "17-台灣與加拿大法律安全與危機轉介.md",
+    "20-經典社交體系的機制、證據與風險邊界.md",
 )
 
 REQUIRED_PRACTICAL = (
-    "00-导读与使用分级.md",
-    "关系投入失衡：互惠判断、降级投入与退出决策.md",
-    "场景感、松弛感与社交校准：从接话到关系推进.md",
-    "实战话术编排器：从一句回复到后续分支.md",
-    "主动表达、第一次见面与自然接触.md",
-    "自然流、内在状态与结构化互动：伦理能力转译.md",
+    "00-導讀與使用分級.md",
+    "關係投入失衡：互惠判斷、降級投入與退出決策.md",
+    "場景感、鬆弛感與社交校準：從接話到關係推進.md",
+    "實戰話術編排器：從一句回覆到後續分支.md",
+    "主動表達、第一次見面與自然接觸.md",
+    "自然流、內在狀態與結構化互動：倫理能力轉譯.md",
 )
 
 REQUIRED_SCENARIOS = (
@@ -144,9 +144,9 @@ def validate_routes_and_regressions(runtime_only: bool) -> None:
     if skill.is_file():
         content = skill.read_text(encoding="utf-8")
         required_routes = (
-            "references/knowledge/20-经典社交体系的机制、证据与风险边界.md",
-            "references/practical/自然流、内在状态与结构化互动：伦理能力转译.md",
-            "默认只读取当前问题直接需要的 1–3 份参考",
+            "references/knowledge/20-經典社交體系的機制、證據與風險邊界.md",
+            "references/practical/自然流、內在狀態與結構化互動：倫理能力轉譯.md",
+            "默認只讀取當前問題直接需要的 1–3 份參考",
         )
         for route in required_routes:
             if route not in content:
@@ -158,14 +158,14 @@ def validate_routes_and_regressions(runtime_only: bool) -> None:
     if scenarios.is_file():
         content = scenarios.read_text(encoding="utf-8")
         coverage_markers = (
-            "冷读",
+            "冷讀",
             "自然流",
-            "结构化互动",
-            "聊天截图",
-            "按需加载",
-            "明确拒绝",
-            "煤气灯",
-            "隔离",
+            "結構化互動",
+            "聊天截圖",
+            "按需加載",
+            "明確拒絕",
+            "煤氣燈",
+            "隔離",
         )
         for marker in coverage_markers:
             if marker not in content:
@@ -178,7 +178,7 @@ def validate_routes_and_regressions(runtime_only: bool) -> None:
 def validate_runtime_boundaries() -> None:
     if (ROOT / ".git").exists():
         tracked_research = subprocess.run(
-            ["git", "ls-files", "--", "research", "恋爱知识库"],
+            ["git", "ls-files", "--", "research", "戀愛知識庫"],
             cwd=ROOT,
             check=False,
             capture_output=True,
