@@ -1,4 +1,4 @@
 interface:
-  display_name: "狗頭軍師"
+  display_name: "Master Dog"
   short_description: "安撫戀愛情緒，分析聊天記錄與多人關係，給出可執行策略"
-  default_prompt: "使用 $goutoujunshi 幫我梳理情緒、分析當前關係，並給出下一步建議。"
+  default_prompt: "使用 $goutoujunshi / Master Dog 幫我梳理情緒、分析當前關係，並給出下一步建議。"

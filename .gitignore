@@ -3,6 +3,10 @@
 .vscode/
 __pycache__/
 *.pyc
+.env
+mobile-app/.env
+mobile-app/*.log
+mobile-app/private-book-index*.json
 
 # The raw research workspace is intentionally not part of the distributable skill.
 /恋爱知识库/
