@@ -27,6 +27,15 @@ render();
 
 settingsButton.addEventListener("click", () => {
   settings.hidden = !settings.hidden;
+  settingsButton.setAttribute("aria-expanded", String(!settings.hidden));
+  if (!settings.hidden) tokenInput.focus();
+});
+
+input.addEventListener("keydown", (event) => {
+  if (event.key === "Enter" && (event.metaKey || event.ctrlKey)) {
+    event.preventDefault();
+    form.requestSubmit();
+  }
 });
 
 saveTokenButton.addEventListener("click", () => {
@@ -71,6 +80,7 @@ async function ask() {
         messages: messages.filter((message) => message !== placeholder)
       })
     });
+    if (response.status === 401) throw new Error("access token 不對或沒設定，點右上角設定重新輸入");
     const data = await response.json();
     if (!response.ok) throw new Error(data.error || "回覆失敗");
     placeholder.content = data.text || "我這次沒有生成內容，你再貼一次情境。";
